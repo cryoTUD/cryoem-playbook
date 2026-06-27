@@ -1,5 +1,5 @@
 site_name: CryoEM Playbook
-site_url: https://github.com/cryoTUD/cryoem-playbook
+site_url: https://cryotud.github.io/cryoem-playbook
 site_author: Arjen Jakobi
 site_description: >-
   CryoEM Playbook is a collection of interactive notebooks that illustrate core concepts in cryo-EM through practical, hands-on examples.
@@ -56,8 +56,8 @@ markdown_extensions:
       alternate_style: true
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
   - pymdownx.arithmatex:
       generic: true
@@ -82,14 +82,21 @@ extra:
 
 nav:
   - Introduction: index.md
-  - Notebooks:
-      - Fourier analysis: notebooks/fourier.md
-      - Single-particle analysis: notebooks/spa.md
-      - Tomography: notebooks/tomo.md
+  - Practicals:
+      - Fourier analysis: fourier.md
+      - Single-particle analysis: spa.md
+      - Tomography: tomo.md
   - About CryoEM Playbook: about.md
 
 plugins:
   - search
+  - jupyterlite:
+      notebook_patterns:
+        - "**/*.ipynb"   # include all notebooks in jupyterlite; none are in nav
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
